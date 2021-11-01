@@ -1,0 +1,29 @@
+{
+  "name": "utils-react-hooks",
+  "version": "1.0.0",
+  "description": "A set of useful react hooks to use in projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidparys/react-hooks.git"
+  },
+  "keywords": [
+    "react",
+    "hooks",
+    "useful",
+    "nextjs",
+    "window"
+  ],
+  "author": "David PARYS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidparys/react-hooks/issues"
+  },
+  "homepage": "https://github.com/davidparys/react-hooks#readme",
+  "dependencies": {
+    "react": "^17.0.2"
+  }
+}
