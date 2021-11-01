@@ -23,5 +23,8 @@
   "homepage": "https://github.com/davidparys/react-hooks#readme",
   "dependencies": {
     "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.33"
   }
 }
