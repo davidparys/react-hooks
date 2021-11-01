@@ -2,7 +2,7 @@
   "name": "utils-react-hooks",
   "version": "1.0.1",
   "description": "A set of useful react hooks to use in projects",
-  "main": "index.js",
+  "main": "window-hooks/index.js",
   "scripts": {},
   "repository": {
     "type": "git",
