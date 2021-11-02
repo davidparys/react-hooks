@@ -27,6 +27,8 @@ Args:
   None
 Returns:
   A boolean value.
+Usage:
+  const width = useWindowDimensions("sm");
 */
 /*
 1. We’re using the useState hook to create a state variable that will hold the current window dimensions.
