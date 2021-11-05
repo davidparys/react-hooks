@@ -4,3 +4,5 @@ export {
   useWindowDimensions,
   useWindowSize,
 } from "./window-hooks/useWindowDimensions";
+
+export { groupBy } from "./arrays/groupBy";

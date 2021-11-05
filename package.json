@@ -4,7 +4,9 @@
   "description": "A set of useful react hooks to use in projects",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "scripts": {},
+  "scripts": {
+    "generateScript": "tsc && np --patch"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/davidparys/react-hooks.git"
