@@ -1,8 +1,5 @@
 /** https://www.tsmean.com/articles/how-to-write-a-typescript-library/ */
-export { usePreviousValue } from "./values/usePreviousValue";
-export {
-  useWindowDimensions,
-  useWindowSize,
-} from "./window-hooks/useWindowDimensions";
-
 export { groupBy } from "./arrays/groupBy";
+export { usePreviousValue } from "./values/usePreviousValue";
+export { useCompareSizes } from "./window-hooks/useCompareSizes";
+export { useWindowDimensions } from "./window-hooks/useWindowDimensions";
