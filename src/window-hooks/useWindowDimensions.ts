@@ -5,7 +5,7 @@ const getWindowDimensions = () => {
     const { innerWidth: width } = window;
     return width;
   }
-  return 9999;
+  return 0;
 };
 
 /*
