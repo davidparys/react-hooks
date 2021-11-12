@@ -4,30 +4,6 @@ exports.useDarkMode = void 0;
 const useMedia_1 = require("./../window-hooks/useMedia");
 const react_1 = require("react");
 const useLocalStorage_1 = require("./../values/useLocalStorage");
-// DESCRIPTION
-/**
- *
- * This hook handles all the stateful logic required to add a ☾ dark mode toggle to your website.
- * It utilizes localStorage to remember the user's chosen mode, defaults to their browser or OS level setting using the prefers-color-scheme media query and
- *  manages the setting of a .dark-mode className on body to apply your styles.
- * This post also helps illustrate the power of hook composition.
- * The syncing of state to localStorage is handled by our useLocalStorage hook.
- * Detecting the user's dark mode preference is handled by our useMedia hook. Both of these hooks were created for other use-cases,
- *  but here we've composed them to create a super useful hook in relatively few lines of code. It's almost as if hooks bring the compositional power of React components to stateful logic! 🤯
- */
-// Usage
-// function App() {
-//     const [darkMode, setDarkMode] = useDarkMode();
-//     return (
-//       <div>
-//         <div className="navbar">
-//           <Toggle darkMode={darkMode} setDarkMode={setDarkMode} />
-//         </div>
-//         <Content />
-//       </div>
-//     );
-//   }
-// Hook
 const useDarkMode = () => {
     // Use our useLocalStorage hook to persist state through a page refresh.
     // Read the recipe for this hook to learn more: usehooks.com/useLocalStorage

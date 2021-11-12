@@ -2,34 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.useOnClickOutside = void 0;
 const react_1 = require("react");
-// DESCRIPTION
-/**
- * This hook allows you to detect clicks outside of a specified element.
- *  In the example below we use it to close a modal when any element outside of the modal is clicked.
- *  By abstracting this logic out into a hook we can easily use it across all of our components that need this kind of functionality (dropdown menus, tooltips, etc).
- */
-// USAGE
-// Usage
-// function App() {
-//   // Create a ref that we add to the element for which we want to detect outside clicks
-//   const ref = useRef();
-//   // State for our modal
-//   const [isModalOpen, setModalOpen] = useState(false);
-//   // Call hook passing in the ref and a function to call on outside click
-//   useOnClickOutside(ref, () => setModalOpen(false));
-//   return (
-//     <div>
-//       {isModalOpen ? (
-//         <div ref={ref}>
-//           👋 Hey, I'm a modal. Click anywhere outside of me to close.
-//         </div>
-//       ) : (
-//         <button onClick={() => setModalOpen(true)}>Open Modal</button>
-//       )}
-//     </div>
-//   );
-// }
-// Hook
 const MOUSEDOWN = "mousedown";
 const TOUCHSTART = "touchstart";
 const useOnClickOutside = (ref, handler) => {
