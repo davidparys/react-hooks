@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-// a React hook function that returns the current window dimensions in tailwind's responsive terms
-
+// a React hook function that returns the current window dimensions
 // Define general type for useWindowSize hook, which includes width and height
 interface Size {
   width: number | undefined;

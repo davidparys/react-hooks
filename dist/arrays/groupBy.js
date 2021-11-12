@@ -8,7 +8,7 @@ exports.groupBy = void 0;
 4. The fourth line is exporting the groupBy function.
 */
 /*
-Group an array of objects by a property name.
+Groups an array of objects by a property name.
 
 Args:
   list: The list of items to group.
