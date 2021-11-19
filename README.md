@@ -18,7 +18,7 @@ This register a resize event listener that will let you know when you cross the 
 
 ### Usage
 
-```javascript
+```tsx
 const width = useWindowDimensions("sm");
 ```
 
@@ -26,7 +26,7 @@ Will return true or false if the window is lower than SM (640px)
 
 ### List of sizes
 
-```javascript
+```tsx
 switch (checkSize) {
   case "sm":
     return 640;
@@ -39,16 +39,16 @@ switch (checkSize) {
   case "2xl":
     return 1536;
 }
-```
+```k
 
-## useWindowSize
+## useCompareSizes
 
 Similarly instead of true or false this will just return the width of the current window.
 
 ### Usage
 
-```javascript
-const width = useWindowSize();
+```tsx
+const width = useCompareSizes();
 ```
 
 ## usePreviousValue
@@ -70,7 +70,7 @@ This hook makes it easy to detect when the user is pressing a specific key on th
 
 ### Usage
 
-```javascript
+```tsx
 function App() {
   // Call the hooks for each keys we want to check
   const happyPress: boolean = useKeyPress("h");
@@ -103,7 +103,7 @@ Possible values for status prop are: "idle", "pending", "success", "error". As y
 
 ### Usage
 
-```javascript
+```tsx
 function App() {
   const { execute, status, value, error } =
     useAsync < string > (myFunction, false);
@@ -133,7 +133,7 @@ Detecting the user's dark mode preference is handled by our useMedia hook. Both 
 
 ### Usage
 
-```javascript
+```tsx
 function App() {
   const [darkMode, setDarkMode] = useDarkMode();
   return (
@@ -155,7 +155,7 @@ It can be confusing to see the background content scroll underneath a modal, esp
 
 ### Usage
 
-```javascript
+```tsx
 function App() {
   //  State for our modal
   const [modalOpen, setModalOpen] = useState < boolean > false;
@@ -202,7 +202,7 @@ By abstracting this logic out into a hook we can easily use it across all of our
 
 ### Usage
 
-```javascript
+```tsx
 function App() {
   // Create a ref that we add to the element for which we want to detect outside clicks
   const ref = useRef();
@@ -232,7 +232,7 @@ function App() {
 
 ### Usage
 
-```javascript
+```tsx
 function App() {
   // Call the hook which returns, current value and the toggler function
   const [isTextChanged, setIsTextChanged] = useToggle();
@@ -250,7 +250,7 @@ Sync state to local storage so that it persists through a page refresh.
 
 ### Usage
 
-```javascript
+```tsx
 function App() {
     // Similar to useState but first arg is key to the value in local storage.
     const [name, setName] = useLocalStorage<string>("name", "Bob");
@@ -277,7 +277,7 @@ function App() {
 
 ###  Usage
 
-```javascript
+```tsx
 function App() {
   const columnCount = useMedia<number>(
     // Media queries
@@ -323,6 +323,72 @@ function App() {
       </div>
     </div>
   );
+}
+```
+
+## useCookie
+
+ This hook gives us   a simple way to set and get cookies.
+
+  Usage is similar to useState except we pass in a cookie name so that we can default to that value on page load instead of the specified initial value.
+
+###  Usage
+
+### `useCookie`
+
+```jsx
+function App() {
+  const [userToken, setUserToken] = useCookie('token', '0');
+
+  render(
+    <div>
+      <p>{userToken}</p>
+      <button onClick={() => setUserToken('123')}>Change token</button>
+    </div>
+  );
+};
+```
+
+`setUserToken` accepts a second argument: `options`. Different to the named
+export, for this one it is the second not the third argument. Take a look at
+[setCookie](#setcookie) for more details.
+
+This package also has a few other exports that can be used directly.
+
+### `getCookie`
+
+If you need to access a cookie outside of a React component, you can use the
+named `getCookie` export:
+
+```tsx
+
+const getUser = () => {
+  const xsrfToken = getCookie('XSRF-TOKEN');
+  // use to call your API etc
+};
+```
+
+### `setCookie`
+
+If you need to set a cookie outside of a React component, you can use the
+named `setCookie` export:
+
+```tsx
+
+const saveLocale = locale => {
+  setCookie('locale', locale);
+};
+```
+
+You can also specify an optional third argument - the same options object as
+above:
+
+```tsx
+{
+  // The number of days the cookie is stored (defaults to 7)
+  days: number;
+  // The path of the cookie (defaults to '/')
+  path: string;
 }
 ```
 
