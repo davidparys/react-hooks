@@ -1,15 +1,48 @@
-import { useState, useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
-export const useLockBodyScroll = (): void => {
-  // useLaoutEffect callback return type is "() => void" type
-  useLayoutEffect((): (() => void) => {
-    // Get original body overflow
-    const originalStyle: string = window.getComputedStyle(
-      document.body
-    ).overflow;
-    // Prevent scrolling on mount
+type ReturnType = [boolean, (locked: boolean) => void];
+
+export function useLockedBodyScroll(initialLocked = false): ReturnType {
+  const [locked, setLocked] = useState(initialLocked);
+
+  // Do the side effect before render
+  useLayoutEffect(() => {
+    if (!locked) {
+      return;
+    }
+
+    // Save initial body style
+    const originalOverflow = document.body.style.overflow;
+    const originalPaddingRight = document.body.style.paddingRight;
+
+    // Lock body scroll
     document.body.style.overflow = "hidden";
-    // Re-enable scrolling when component unmounts
-    return () => (document.body.style.overflow = originalStyle);
-  }, []); // Empty array ensures effect is only run on mount and unmount
-};
+
+    // Get the scrollBar width
+    const root = document.getElementById("root"); // or root
+    const scrollBarWidth = root ? root.offsetWidth - root.scrollWidth : 0;
+
+    // Avoid width reflow
+    if (scrollBarWidth) {
+      document.body.style.paddingRight = `${scrollBarWidth}px`;
+    }
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+
+      if (scrollBarWidth) {
+        document.body.style.paddingRight = originalPaddingRight;
+      }
+    };
+  }, [locked]);
+
+  // Update state if initialValue changes
+  useEffect(() => {
+    if (locked !== initialLocked) {
+      setLocked(initialLocked);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialLocked]);
+
+  return [locked, setLocked];
+}

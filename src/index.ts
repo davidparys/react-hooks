@@ -9,6 +9,6 @@ export { useDarkMode } from "./ui/useDarkMode";
 export { useMedia } from "./window-hooks/useMedia";
 export { useLocalStorage } from "./values/useLocalStorage";
 export { useKeyPress } from "./keyboard/useKeyPress";
-export { useLockBodyScroll } from "./ui/useLockBodyScroll";
+export { useLockedBodyScroll } from "./ui/useLockBodyScroll";
 export { useOnClickOutside } from "./ui/useOnClickOutside";
 export { getCookie, setCookie } from "./cookies/useCookie";
