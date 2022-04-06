@@ -156,58 +156,41 @@ It can be confusing to see the background content scroll underneath a modal, esp
 ### Usage
 
 ```tsx
-import React, { CSSProperties, useState } from 'react'
-
-import { useLockedBody } from 'usehooks-ts'
-
-const fixedCenterStyle: CSSProperties = {
-  position: 'fixed',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-}
-
-const fakeScrollableStyle: CSSProperties = {
-  minHeight: '150vh',
-  background: 'linear-gradient(palegreen, palegoldenrod, palevioletred)',
-}
-
-// Example 1: useLockedBody as useState()
-export default function App() {
-  const [locked, setLocked] = useLockedBody()
-
-  const toggleLocked = () => {
-    setLocked(!locked)
-  }
-
+function App() {
+  //  State for our modal
+  const [modalOpen, setModalOpen] = useState < boolean > false;
   return (
-    <div style={fakeScrollableStyle}>
-      <button style={fixedCenterStyle} onClick={toggleLocked}>
-        {locked ? 'unlock scroll' : 'lock scroll'}
-      </button>
+    <div>
+      <button onClick={() => setModalOpen(true)}>Show Modal</button>
+      <Content />
+      {modalOpen && (
+        <Modal
+          title="Try scrolling"
+          content="You cannot scroll"
+          onClose={() => setModalOpen(false)}
+        />
+      )}
     </div>
-  )
+  );
 }
-
-// Example 2: useLockedBody with our custom state
-export function App2() {
-  const [locked, setLocked] = useState(false)
-
-  const toggleLocked = () => {
-    setLocked(!locked)
-  }
-
-  useLockedBody(locked)
-
+//  Define modal props type
+type ModalProps = {
+  title: string,
+  content: string,
+  onClose: () => void,
+};
+function Modal({ title, content, onClose }: ModalProps) {
+  //  Call hook to lock body scroll
+  useLockBodyScroll();
   return (
-    <div style={fakeScrollableStyle}>
-      <button style={fixedCenterStyle} onClick={toggleLocked}>
-        {locked ? 'unlock scroll' : 'lock scroll'}
-      </button>
+    <div className="absolute inset-0 p-10" onClick={onClose}>
+      <div className="p-2 bg-white flex justify-center items-center">
+        <h2>{title}</h2>
+        <p>{content}</p>
+      </div>
     </div>
-  )
+  );
 }
-
 ```
 
 ## useOnClickOutside
