@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 export const useLocalStorage = <T extends {}>(key: string, initialValue: T) => {
+  if (typeof window === undefined) return;
   // State to store our value
   // Pass initial state function to useState so logic is only executed once
   const [storedValue, setStoredValue] = useState<T>(() => {

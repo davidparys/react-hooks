@@ -3,6 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.useLocalStorage = void 0;
 const react_1 = require("react");
 const useLocalStorage = (key, initialValue) => {
+    if (typeof window === undefined)
+        return;
     // State to store our value
     // Pass initial state function to useState so logic is only executed once
     const [storedValue, setStoredValue] = (0, react_1.useState)(() => {
