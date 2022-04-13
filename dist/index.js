@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setCookie = exports.getCookie = exports.useOnClickOutside = exports.useLockedBodyScroll = exports.useKeyPress = exports.useLocalStorage = exports.useMedia = exports.useDarkMode = exports.useAsync = exports.useToggle = exports.useWindowDimensions = exports.useCompareSizes = exports.usePreviousValue = exports.groupBy = void 0;
+exports.setCookie = exports.getCookie = exports.useOnClickOutside = exports.useLockedBodyScroll = exports.useKeyPress = exports.useMedia = exports.useAsync = exports.useToggle = exports.useWindowDimensions = exports.useCompareSizes = exports.usePreviousValue = exports.groupBy = void 0;
 /** https://www.tsmean.com/articles/how-to-write-a-typescript-library/ */
 var groupBy_1 = require("./arrays/groupBy");
 Object.defineProperty(exports, "groupBy", { enumerable: true, get: function () { return groupBy_1.groupBy; } });
@@ -14,12 +14,8 @@ var useToggle_1 = require("./ui/useToggle");
 Object.defineProperty(exports, "useToggle", { enumerable: true, get: function () { return useToggle_1.useToggle; } });
 var useAsync_1 = require("./requests/useAsync");
 Object.defineProperty(exports, "useAsync", { enumerable: true, get: function () { return useAsync_1.useAsync; } });
-var useDarkMode_1 = require("./ui/useDarkMode");
-Object.defineProperty(exports, "useDarkMode", { enumerable: true, get: function () { return useDarkMode_1.useDarkMode; } });
 var useMedia_1 = require("./window-hooks/useMedia");
 Object.defineProperty(exports, "useMedia", { enumerable: true, get: function () { return useMedia_1.useMedia; } });
-var useLocalStorage_1 = require("./values/useLocalStorage");
-Object.defineProperty(exports, "useLocalStorage", { enumerable: true, get: function () { return useLocalStorage_1.useLocalStorage; } });
 var useKeyPress_1 = require("./keyboard/useKeyPress");
 Object.defineProperty(exports, "useKeyPress", { enumerable: true, get: function () { return useKeyPress_1.useKeyPress; } });
 var useLockBodyScroll_1 = require("./ui/useLockBodyScroll");
