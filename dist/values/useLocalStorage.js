@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.useLocalStorage = void 0;
 const react_1 = require("react");
 const useLocalStorage = (key, initialValue) => {
-    if (typeof window === undefined)
+    if (typeof window === "undefined")
         return;
     // State to store our value
     // Pass initial state function to useState so logic is only executed once
@@ -23,7 +23,7 @@ const useLocalStorage = (key, initialValue) => {
     // Return a wrapped version of useState's setter function that ...
     // ... persists the new value to localStorage.
     const setValue = (value) => {
-        if (typeof window === undefined)
+        if (typeof window === "undefined")
             return;
         try {
             // Allow value to be a function so we have same API as useState
