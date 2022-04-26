@@ -10,3 +10,4 @@ export { useKeyPress } from "./keyboard/useKeyPress";
 export { useLockedBodyScroll } from "./ui/useLockBodyScroll";
 export { useOnClickOutside } from "./ui/useOnClickOutside";
 export { getCookie, setCookie } from "./cookies/useCookie";
+export { Greetings } from "./greetings/greetings";

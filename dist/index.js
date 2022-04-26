@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setCookie = exports.getCookie = exports.useOnClickOutside = exports.useLockedBodyScroll = exports.useKeyPress = exports.useMedia = exports.useAsync = exports.useToggle = exports.useWindowDimensions = exports.useCompareSizes = exports.usePreviousValue = exports.groupBy = void 0;
+exports.Greetings = exports.setCookie = exports.getCookie = exports.useOnClickOutside = exports.useLockedBodyScroll = exports.useKeyPress = exports.useMedia = exports.useAsync = exports.useToggle = exports.useWindowDimensions = exports.useCompareSizes = exports.usePreviousValue = exports.groupBy = void 0;
 /** https://www.tsmean.com/articles/how-to-write-a-typescript-library/ */
 var groupBy_1 = require("./arrays/groupBy");
 Object.defineProperty(exports, "groupBy", { enumerable: true, get: function () { return groupBy_1.groupBy; } });
@@ -25,3 +25,5 @@ Object.defineProperty(exports, "useOnClickOutside", { enumerable: true, get: fun
 var useCookie_1 = require("./cookies/useCookie");
 Object.defineProperty(exports, "getCookie", { enumerable: true, get: function () { return useCookie_1.getCookie; } });
 Object.defineProperty(exports, "setCookie", { enumerable: true, get: function () { return useCookie_1.setCookie; } });
+var greetings_1 = require("./greetings/greetings");
+Object.defineProperty(exports, "Greetings", { enumerable: true, get: function () { return greetings_1.Greetings; } });
